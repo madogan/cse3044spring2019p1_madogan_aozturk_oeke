@@ -1,2 +1,2 @@
-# Law Portal
+# Allaamus
 SWE Course Project
