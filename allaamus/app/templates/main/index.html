@@ -21,18 +21,18 @@
     <meta name="author" content="">
     
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="../static/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="../../static/main/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="../../static/main/images/apple-touch-icon.png">
 
 	<!-- Google Fonts -->
  	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700" rel="stylesheet"> 
 
 	<!-- Custom & Default Styles -->
-	<link rel="stylesheet" href="../static/css/font-awesome.min.css">
-	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../static/css/animate.css">
-	<link rel="stylesheet" href="../static/css/carousel.css">
-	<link rel="stylesheet" href="../static/style.css">
+	<link rel="stylesheet" href="../../static/main/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../static/main/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../static/main/css/animate.css">
+	<link rel="stylesheet" href="../../static/main/css/carousel.css">
+	<link rel="stylesheet" href="../../static/main/style.css">
 
 	<!--[if lt IE 9]>
 		<script src="js/vendor/html5shiv.min.js"></script>
@@ -49,11 +49,11 @@
                     <div class="col-md-6 col-sm-6 hidden-xs">
                         <nav class="topbar-menu">
                             <ul class="list-inline">
-                            	<li>Follow us: </li>
+                            	<li>Bizi Takip et: </li>
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                
                             </ul><!-- end list -->
                         </nav><!-- end menu -->
                     </div><!-- end col -->
@@ -61,26 +61,15 @@
                     <div class="col-md-6 col-sm-6">
                         <nav class="topbar-menu">
                             <ul class="list-inline text-right navbar-right">
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><img src="../static/images/us.png" alt=""> English
-                                    <span class="fa fa-angle-down"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"><img src="../static/images/tr.png" alt=""> Turkish</a></li>
-                                        <li><a href="#"><img src="../static/images/si.png" alt=""> Spanish</a></li>
-                                        <li><a href="#"><img src="../static/images/it.png" alt=""> Italian</a></li>
-                                        <li><a href="#"><img src="../static/images/ae.png" alt=""> Arabic</a></li>
-                                        <li><a href="#"><img src="../static/images/de.png" alt=""> German</a></li>
-                                    </ul>
-                                </li>
-                                <li class="hidden-xs"><i class="fa fa-clock-o"></i> 08:00 - 17:00</li>
-                                <li><i class="fa fa-phone"></i> +90 987 665 55 44</li>
+								<li><a href="{{ url_for('login') }}">Giriş</a></li>
+								<li><a href="{{ url_for('register') }}">Kayıt Ol</a></li>                               
                             </ul><!-- end list -->
                         </nav><!-- end menu -->
                     </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end container -->
         </div><!-- end topbar -->
-
+		
 		<header class="header site-header">
 			<div class="container">
 				<nav class="navbar navbar-default yamm">
@@ -92,54 +81,54 @@
 				                <span class="icon-bar"></span>
 				                <span class="icon-bar"></span>
 				            </button>
-							<a class="navbar-brand" href="../templates/index.html"><img src="../static/images/logo.png" alt="Linda"></a>
+							<a class="navbar-brand" href="../templates/index.html"><img src="../../static/main/images/logo.png" alt="Linda"></a>
 				        </div>
 				        <div id="navbar" class="navbar-collapse collapse">
 				            <ul class="nav navbar-nav navbar-right">
-				                <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+				                <li class="active"><a href="{{ url_for('index') }}">Anasayfa</a></li>
 				                <li class="dropdown yamm-fw hasmenu">
-				                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Features <span class="fa fa-angle-down"></span></a>
+				                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Uzmanlar <span class="fa fa-angle-down"></span></a>
 						            <ul class="dropdown-menu">
 						                <li>
 						                    <div class="yamm-content">
 							                    <div class="row"> 
 							                    	<div class="col-md-4">
 														<ul>
-							                    			<li><a href="../static/service-01.html">SEO Consultants</a></li>
-							                    			<li><a href="../static/service-02.html">SEO Audits</a></li>
-							                    			<li><a href="../static/service-03.html">SEO Packages & Plans</a></li>
-							                    			<li><a href="../static/service-04.html">Web Copywriting</a></li>
-							                    			<li><a href="../static/service-05.html">SEO Copywriting</a></li>
-							                    			<li><a href="../static/service-06.html">Keyword Research</a></li>
-							                    			<li><a href="../static/service-07.html">SEO Strategy</a></li>
-							                    			<li><a href="../static/service-08.html">Website Design</a></li>
-							                    			<li><a href="../static/service-09.html">Link Building Services</a></li>
+							                    			<li><a href="../../static/main/service-01.html">SEO Consultants</a></li>
+							                    			<li><a href="../../static/main/service-02.html">SEO Audits</a></li>
+							                    			<li><a href="../../static/main/service-03.html">SEO Packages & Plans</a></li>
+							                    			<li><a href="../../static/main/service-04.html">Web Copywriting</a></li>
+							                    			<li><a href="../../static/main/service-05.html">SEO Copywriting</a></li>
+							                    			<li><a href="../../static/main/service-06.html">Keyword Research</a></li>
+							                    			<li><a href="../../static/main/service-07.html">SEO Strategy</a></li>
+							                    			<li><a href="../../static/main/service-08.html">Website Design</a></li>
+							                    			<li><a href="../../static/main/service-09.html">Link Building Services</a></li>
 							                    		</ul>
 							                    	</div>
 							                    	<div class="col-md-4">
 														<ul>
-							                    			<li><a href="../static/page-services.html">All Services</a></li>
-							                    			<li><a href="../static/page-pricing.html">Pricing & Plans</a></li>
-							                    			<li><a href="../static/page-clients.html">Our Clients</a></li>
-							                    			<li><a href="../static/page-testimonials.html">Testimonials</a></li>
-							                    			<li><a href="../static/page-ebooks.html">Free E-Books</a></li>
-							                    			<li><a href="../static/page-seo-analysis.html">SEO Analysis</a></li>
-							                    			<li><a href="../static/case-studies.html">Case Studies</a></li>
-							                    			<li><a href="../static/case-studies-alt.html">Case Studies Alt</a></li>
-							                    			<li><a href="../static/case-studies-single.html">Case Studies Single</a></li>
+							                    			<li><a href="../../static/main/page-services.html">All Services</a></li>
+							                    			<li><a href="../../static/main/page-pricing.html">Pricing & Plans</a></li>
+							                    			<li><a href="../../static/main/page-clients.html">Our Clients</a></li>
+							                    			<li><a href="../../static/main/page-testimonials.html">Testimonials</a></li>
+							                    			<li><a href="../../static/main/page-ebooks.html">Free E-Books</a></li>
+							                    			<li><a href="../../static/main/page-seo-analysis.html">SEO Analysis</a></li>
+							                    			<li><a href="../../static/main/case-studies.html">Case Studies</a></li>
+							                    			<li><a href="../../static/main/case-studies-alt.html">Case Studies Alt</a></li>
+							                    			<li><a href="../../static/main/case-studies-single.html">Case Studies Single</a></li>
 							                    		</ul>
 							                    	</div>
 							                    	<div class="col-md-4">
 														<ul>
-							                    			<li><a href="../static/blog.html">Blog & News</a></li>
-							                    			<li><a href="../static/blog-alt.html">Blog Alternative</a></li>
-							                    			<li><a href="../static/blog-single.html">Single Blog</a></li>
-							                    			<li><a href="../static/page.html">Default Page</a></li>
-							                    			<li><a href="../static/page-fullwidth.html">Fullwidth Page</a></li>
-							                    			<li><a href="../static/page-contact.html">Contact us</a></li>
-							                    			<li><a href="../static/page-contact-alt.html">Contact Alternative</a></li>
-							                    			<li><a href="../static/page-faqs.html">FAQ's Page</a></li>
-							                    			<li><a href="../static/page-not-found.html">404 Not Found</a></li>
+							                    			<li><a href="../../static/main/blog.html">Blog & News</a></li>
+							                    			<li><a href="../../static/main/blog-alt.html">Blog Alternative</a></li>
+							                    			<li><a href="../../static/main/blog-single.html">Single Blog</a></li>
+							                    			<li><a href="../../static/main/page.html">Default Page</a></li>
+							                    			<li><a href="../../static/main/page-fullwidth.html">Fullwidth Page</a></li>
+							                    			<li><a href="../../static/main/page-contact.html">Contact us</a></li>
+							                    			<li><a href="../../static/main/page-contact-alt.html">Contact Alternative</a></li>
+							                    			<li><a href="../../static/main/page-faqs.html">FAQ's Page</a></li>
+							                    			<li><a href="../../static/main/page-not-found.html">404 Not Found</a></li>
 							                    		</ul>
 							                    	</div>
 							                    </div>
@@ -147,11 +136,15 @@
 						                </li>
 						            </ul>
 				                </li>
-				                <li><a href="../static/page-about.html">What is SEO?</a></li>
-				                <li><a href="../static/case-studies.html">Case Studies</a></li>
-				                <li><a href="../static/blog.html">Blog</a></li>
-				                <li><a href="../static/page-contact.html">Contact</a></li>
-                                <li class="lastlink hidden-xs hidden-sm"><a class="btn btn-primary" href="page-seo-analysis.html"><i class="glyphicon glyphicon-search"></i> free seo analysis</a></li>
+				                <li><a href="../../static/main/page-about.html">Allaamus Nedir?</a></li>
+				                <!--/<li><a href="../../static/main/case-studies.html">Case Studies</a></li> -->
+				                <li><a href="../../static/main/blog.html">Soru & Cevap</a></li>
+				                <li><a href="../../static/main/page-contact.html">İletişim</a></li>
+                                <li class="lastlink hidden-xs hidden-sm">
+									<a class="btn btn-primary" href="#">
+										<i class="glyphicon glyphicon-search"></i>randevu al
+									</a>
+								</li>
                             </ul>
 				        </div><!--/.nav-collapse -->
 				    </div><!--/.container-fluid -->
@@ -163,8 +156,8 @@
 			<div class="container">
 				<div class="row">	
 					<div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
-						<h2>Let's Analysis Your Website SEO</h2>
-						<p class="lead">Now you can customize your SEO service according to your need</p>
+						<h2>Soru Ara</h2>
+						<!--<p class="lead">Now you can customize your SEO service according to your need</p> -->
 						<form class="calculateform">
 						    <div class="item-box">
 						        <div class="item-top form-inline">
@@ -269,7 +262,7 @@
 				<div class="row">
 					<div class="col-md-4">
                         <div class="milestone-counter c1">
-                            <img src="../static/images/icon_07.png" alt="" class="alignleft">
+                            <img src="../../static/main/images/icon_07.png" alt="" class="alignleft">
                             <h3 class="stat-count">2901</h3>
                             <p>Happy Customers</p>
                         </div>
@@ -277,7 +270,7 @@
 
 					<div class="col-md-4">
                         <div class="milestone-counter c2">
-                            <img src="../static/images/icon_08.png" alt="" class="alignleft">
+                            <img src="../../static/main/images/icon_08.png" alt="" class="alignleft">
                             <h3 class="stat-count">304</h3>
                             <p>Online Strategy</p>
                         </div>
@@ -285,7 +278,7 @@
 
 					<div class="col-md-4">
                         <div class="milestone-counter c3">
-                            <img src="../static/images/icon_09.png" alt="" class="alignleft">
+                            <img src="../../static/main/images/icon_09.png" alt="" class="alignleft">
                             <h3 class="stat-count">890</h3>
                             <p>Great Results</p>
                         </div>
@@ -296,7 +289,7 @@
 		
 		<section class="section lb nopad spotlight style1">
 		    <div class="image col-md-4 hidden-sm hidden-xs">
-		        <img src="../static/upload/blog_alt_06.jpg" alt="" />
+		        <img src="../../static/main/upload/blog_alt_06.jpg" alt="" />
 		    </div>
 		    <div class="content">
 		        <h2>Be the leader in the sector</h2>
@@ -315,52 +308,52 @@
 				<div class="owl-carousel owl-theme lightcasestudies withhover">
 					<div class="item-carousel">
 						<div class="case-box">
-							<img src="../static/upload/case_01.png" alt="" class="img-responsive">
+							<img src="../../static/main/upload/case_01.png" alt="" class="img-responsive">
 							<div class="magnifier">
-								<a href="../static/case-studies-single.html"><i class="fa fa-link"></i></a> 
+								<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
 							</div>
 						</div><!-- end case-box -->
 					</div><!-- end col -->
 
 					<div class="item-carousel">
 						<div class="case-box">
-							<img src="../static/upload/case_07.jpg" alt="" class="img-responsive">
+							<img src="../../static/main/upload/case_07.jpg" alt="" class="img-responsive">
 							<div class="magnifier">
-								<a href="../static/case-studies-single.html"><i class="fa fa-link"></i></a> 
+								<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
 							</div>
 						</div><!-- end case-box -->
 					</div><!-- end col -->
 
 					<div class="item-carousel">
 						<div class="case-box">
-							<img src="../static/upload/case_03.png" alt="" class="img-responsive">
+							<img src="../../static/main/upload/case_03.png" alt="" class="img-responsive">
 							<div class="magnifier">
-								<a href="../static/case-studies-single.html"><i class="fa fa-link"></i></a> 
+								<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
 							</div>
 						</div><!-- end case-box -->
 					</div><!-- end col -->
 
 					<div class="item-carousel">
 						<div class="case-box">
-							<img src="../static/upload/case_02.png" alt="" class="img-responsive">
+							<img src="../../static/main/upload/case_02.png" alt="" class="img-responsive">
 							<div class="magnifier">
-								<a href="../static/case-studies-single.html"><i class="fa fa-link"></i></a> 
+								<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
 							</div>
 						</div><!-- end case-box -->
 					</div><!-- end col -->
 
 					<div class="item-carousel">
 						<div class="case-box">
-							<img src="../static/upload/case_05.jpg" alt="" class="img-responsive">
+							<img src="../../static/main/upload/case_05.jpg" alt="" class="img-responsive">
 							<div class="magnifier">
-								<a href="../static/case-studies-single.html"><i class="fa fa-link"></i></a> 
+								<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
 							</div>
 						</div><!-- end case-box -->
 					</div><!-- end col -->
 
 					<div class="item-carousel">
 						<div class="case-box">
-							<img src="../static/upload/case_06.jpg" alt="" class="img-responsive">
+							<img src="../../static/main/upload/case_06.jpg" alt="" class="img-responsive">
 							<div class="magnifier">
 								<a href="case-studies-single.html"><i class="fa fa-link"></i></a> 
 							</div>
@@ -377,7 +370,7 @@
 		         <a href="#" class="btn btn-transparent">Learn More</a>
 		    </div>
 		    <div class="image col-md-4 hidden-sm hidden-xs">
-		        <img src="../static/upload/blog_alt_01.jpg" alt="" />
+		        <img src="../../static/main/upload/blog_alt_01.jpg" alt="" />
 		    </div>
 		</section>
 
@@ -902,32 +895,32 @@
 				<div class="row text-center">
 					<div class="col-md-2 col-sm-2 col-xs-6">
 						<div class="client-box">
-							<a href="#"><img src="../static/upload/client_01.png" alt="" class="img-responsive"></a>
+							<a href="#"><img src="../../static/main/upload/client_01.png" alt="" class="img-responsive"></a>
 						</div>
 					</div><!-- end col -->
 					<div class="col-md-2 col-sm-2 col-xs-6">
 						<div class="client-box">
-							<a href="#"><img src="../static/upload/client_02.png" alt="" class="img-responsive"></a>
+							<a href="#"><img src="../../static/main/upload/client_02.png" alt="" class="img-responsive"></a>
 						</div>
 					</div><!-- end col -->
 					<div class="col-md-2 col-sm-2 col-xs-6">
 						<div class="client-box">
-							<a href="#"><img src="../static/upload/client_03.png" alt="" class="img-responsive"></a>
+							<a href="#"><img src="../../static/main/upload/client_03.png" alt="" class="img-responsive"></a>
 						</div>
 					</div><!-- end col -->	
 					<div class="col-md-2 col-sm-2 col-xs-6">
 						<div class="client-box">
-							<a href="#"><img src="../static/upload/client_04.png" alt="" class="img-responsive"></a>
+							<a href="#"><img src="../../static/main/upload/client_04.png" alt="" class="img-responsive"></a>
 						</div>
 					</div><!-- end col -->
 					<div class="col-md-2 col-sm-2 col-xs-6">
 						<div class="client-box">
-							<a href="#"><img src="../static/upload/client_05.png" alt="" class="img-responsive"></a>
+							<a href="#"><img src="../../static/main/upload/client_05.png" alt="" class="img-responsive"></a>
 						</div>
 					</div><!-- end col -->
 					<div class="col-md-2 col-sm-2 col-xs-6">
 						<div class="client-box">
-							<a href="#"><img src="../static/upload/client_06.png" alt="" class="img-responsive"></a>
+							<a href="#"><img src="../../static/main/upload/client_06.png" alt="" class="img-responsive"></a>
 						</div>
 					</div><!-- end col -->	
 				</div><!-- end row -->
@@ -1022,12 +1015,12 @@
 	</div><!-- end wrapper -->
 
 	<!-- jQuery Files -->
-	<script src="../static/js/jquery.min.js"></script>
-	<script src="../static/js/bootstrap.min.js"></script>
-	<script src="../static/js/parallax.js"></script>
-	<script src="../static/js/animate.js"></script>
-	<script src="../static/js/owl.carousel.js"></script>
-	<script src="../static/js/custom.js"></script>
+	<script src="../../static/main/js/jquery.min.js"></script>
+	<script src="../../static/main/js/bootstrap.min.js"></script>
+	<script src="../../static/main/js/parallax.js"></script>
+	<script src="../../static/main/js/animate.js"></script>
+	<script src="../../static/main/js/owl.carousel.js"></script>
+	<script src="../../static/main/js/custom.js"></script>
 
 </body>
 </html>
