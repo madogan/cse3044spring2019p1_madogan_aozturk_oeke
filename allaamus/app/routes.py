@@ -1,6 +1,6 @@
 from app import app
 from os.path import join
-from app.forms import LoginForm
+from app.forms import LoginForm, RegisterForm
 from flask import render_template, request, flash, redirect
 
 
@@ -9,6 +9,11 @@ from flask import render_template, request, flash, redirect
 def index():
     return render_template('main/index.html')
 
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    register_form = RegisterForm()
+    return render_template("auth/register.html", title="Kayıt", form=register_form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -20,10 +25,6 @@ def login():
             return redirect('/')
     return render_template('auth/login.html', form=form)
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    print(request.form)
-    return render_template('auth/register.html')
 
 @app.errorhandler(404)
 def error(e):
