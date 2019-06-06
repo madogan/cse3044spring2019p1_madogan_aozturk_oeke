@@ -1,12 +1,12 @@
 *** Üç tane alan seçtik: Psikoloji, Tıp, Eğitim.
 
 Ali Öztürk:
-* 180x50 boyutlarına png formatında logo hazırlanacak.
-* Üst kısım tamamen kaldırılacak.
-* Navbar: "Anasayfa", "Uzmanlar", "Soru & Cevap", "Randevu Al" (Tuş)
-* Arkaplan resmi ayarlanacak.
-* Arama motoru yazıları düzenlenecek.
-* Arama motoruna kategori menüsü eklenecek.
+* 180x50 boyutlarına png formatında logo hazırlanacak. +++
+* Üst kısım tamamen kaldırılacak. +++
+* Navbar: "Anasayfa", "Uzmanlar", "Soru & Cevap", "Randevu Al" (Tuş) +++
+* Arkaplan resmi ayarlanacak. +++
+* Arama motoru yazıları düzenlenecek. +++
+* Arama motoruna kategori menüsü eklenecek. 
 	** Uç Nokta: /search
 	** Method: POST
 	** İçerik Tipi: JSON
