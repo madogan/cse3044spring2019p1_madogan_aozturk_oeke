@@ -22,9 +22,11 @@
 				<!-- First Name Input Field -->
 				<div class="wrap-input100 validate-input">
 					{{ form.first_name(class_='input100', type='text', placeholder='Ad') }}
-					{% if form.first_name.errors %}
-						<span> {{ form.first_name.errors|join('\n'|safe) }} </span>
-					{% endif %}
+					
+					{% for error in form.first_name.errors %}
+						<span class="alert-validate" data-validate="{{ error }}"></span>
+					{% endfor %}
+	
 					<!--<input class="input100" type="text" name="first_name" placeholder="Ad">-->
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
@@ -34,9 +36,11 @@
 				
 				<div class="wrap-input100 validate-input">
 					{{ form.last_name(class_='input100', type='text', placeholder='Soyad') }}
-					{% if form.last_name.errors %}
-						<script> $('input[name=last_name]').attr("data-validate", "{{ form.last_name.errors|join('\n'|safe) }}") </script>
-					{% endif %}
+					
+					{% for error in form.last_name.errors %}
+						<span class="alert-validate" data-validate="{{ error }}"></span>
+					{% endfor %}
+
 					<!--<input class="input100" type="text" name="last_name" placeholder="Soyad">-->
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
@@ -46,9 +50,11 @@
 
 				<div class="wrap-input100 validate-input">
 					{{ form.email(class_='input100', type='text', placeholder='Eposta') }}
-					{% if form.email.errors %}
-						<script> $('input[name=email]').attr("data-validate", "{{ form.email.errors|join('\n'|safe) }}") </script>
-					{% endif %}
+					
+					{% for error in form.email.errors %}
+						<span class="alert-validate" data-validate="{{ error }}"></span>
+					{% endfor %}
+
 					<!--<input class="input100" type="text" name="email" placeholder="E-posta">-->
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
@@ -58,9 +64,11 @@
 
 				<div class="wrap-input100 validate-input">
 					{{ form.password(class_='input100', type='password', placeholder='Parola') }}
-					{% if form.password.errors %}
-						<script> $('input[name=password]').attr("data-validate", "{{ form.password.errors|join('\n'|safe) }}") </script>
-					{% endif %}
+					
+					{% for error in form.password.errors %}
+						<span class="alert-validate" data-validate="{{ error }}"></span>
+					{% endfor %}
+
 					<!--<input class="input100" type="password" name="password" placeholder="Parola">-->
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
@@ -69,10 +77,12 @@
 				</div>
 
 				<div class="wrap-input100 validate-input">
-					{{ form.confirm_password(class_='input100', type='parola', placeholder='Parola Onay') }}
-					{% if form.confirm_password.errors %}
-						<script> $('input[name=confirm_password]').attr("data-validate", "{{ form.confirm_password.errors|join('\n'|safe) }}") </script>
-					{% endif %}
+					{{ form.confirm_password(class_='input100', type='password', placeholder='Parola Onay') }}
+					
+					{% for error in form.confirm_password.errors %}
+						<span class="alert-validate" data-validate="{{ error }}"></span>
+					{% endfor %}
+
 					<!--<input class="input100" type="password" name="confirm_password" placeholder="Doğrulama Parolası">-->
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
@@ -82,9 +92,11 @@
 
 				<div class="wrap-input100 validate-input">
 					{{ form.user_type(class_='input100', type='text', placeholder='Meraklı yada Usta') }}
-					{% if form.user_type.errors %}
-						<script> $('input[name=user_type]').attr("data-validate", "{{ form.user_type.errors|join('\n'|safe) }}") </script>
-					{% endif %}
+
+					{% for error in form.user_type.errors %}
+						<span class="alert-validate" data-validate="{{ error }}"></span>
+					{% endfor %}
+
 					<!--<input class="input100" type="text" name="user_type" placeholder="Meraklı yada Usta">-->
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
