@@ -23,12 +23,13 @@
 	<!-- Google Fonts -->
  	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700" rel="stylesheet"> 
 
-	<!-- Custom & Default Styles -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="style.css">
-
+		<!-- Custom & Default Styles -->
+		<link rel="stylesheet" href="../../static/main/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../static/main/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../static/main/css/animate.css">
+		<link rel="stylesheet" href="../../static/main/css/carousel.css">
+		<link rel="stylesheet" href="../../static/main/style.css">
+	
 	<!--[if lt IE 9]>
 		<script src="js/vendor/html5shiv.min.js"></script>
 		<script src="js/vendor/respond.min.js"></script>
@@ -38,7 +39,34 @@
 <body>
 	
 	<div id="wrapper">
-		<header class="header site-header header-transparent">
+		<<div class="topbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 hidden-xs">
+                        <nav class="topbar-menu">
+                            <ul class="list-inline">
+                            	<li>Bizi Takip et: </li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                
+                            </ul><!-- end list -->
+                        </nav><!-- end menu -->
+                    </div><!-- end col -->
+
+                    <div class="col-md-6 col-sm-6">
+                        <nav class="topbar-menu">
+                            <ul class="list-inline text-right navbar-right">
+								<li><a href="{{ url_for('login') }}">Giriş</a></li>
+								<li><a href="{{ url_for('register') }}">Kayıt Ol</a></li>                               
+                            </ul><!-- end list -->
+                        </nav><!-- end menu -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </div><!-- end topbar -->
+		
+		<header class="header site-header">
 			<div class="container">
 				<nav class="navbar navbar-default yamm">
 				    <div class="container-fluid">
@@ -49,54 +77,33 @@
 				                <span class="icon-bar"></span>
 				                <span class="icon-bar"></span>
 				            </button>
-							<a class="navbar-brand" href="index.html"><img src="images/lightlogo.png" alt="Linda"></a>
+							<a class="navbar-brand" href="index"><img src="../../static/main/images/logo.png" alt="Linda"></a>
 				        </div>
 				        <div id="navbar" class="navbar-collapse collapse">
 				            <ul class="nav navbar-nav navbar-right">
-				                <li class=""><a href="index.html">Home</a></li>
+								<li class="active"><a href="{{ url_for('index') }}">Anasayfa</a></li>
+								
 				                <li class="dropdown yamm-fw hasmenu">
-				                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Features <span class="fa fa-angle-down"></span></a>
+				                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Uzmanlar <span class="fa fa-angle-down"></span></a>
 						            <ul class="dropdown-menu">
 						                <li>
 						                    <div class="yamm-content">
 							                    <div class="row"> 
 							                    	<div class="col-md-4">
 														<ul>
-							                    			<li><a href="service-01.html">SEO Consultants</a></li>
-							                    			<li><a href="service-02.html">SEO Audits</a></li>
-							                    			<li><a href="service-03.html">SEO Packages & Plans</a></li>
-							                    			<li><a href="service-04.html">Web Copywriting</a></li>
-							                    			<li><a href="service-05.html">SEO Copywriting</a></li>
-							                    			<li><a href="service-06.html">Keyword Research</a></li>
-							                    			<li><a href="service-07.html">SEO Strategy</a></li>
-							                    			<li><a href="service-08.html">Website Design</a></li>
-							                    			<li><a href="service-09.html">Link Building Services</a></li>
+							                    			<li><a href="../../static/main/service-01.html">Teknoloji</a></li>
+							                    			
+							                    			
 							                    		</ul>
 							                    	</div>
 							                    	<div class="col-md-4">
 														<ul>
-							                    			<li><a href="page-services.html">All Services</a></li>
-							                    			<li><a href="page-pricing.html">Pricing & Plans</a></li>
-							                    			<li><a href="page-clients.html">Our Clients</a></li>
-							                    			<li><a href="page-testimonials.html">Testimonials</a></li>
-							                    			<li><a href="page-ebooks.html">Free E-Books</a></li>
-							                    			<li><a href="page-seo-analysis.html">SEO Analysis</a></li>
-							                    			<li><a href="case-studies.html">Case Studies</a></li>
-							                    			<li><a href="case-studies-alt.html">Case Studies Alt</a></li>
-							                    			<li><a href="case-studies-single.html">Case Studies Single</a></li>
+															<li><a href="../../static/main/service-02.html">Eğitim</a></li>
 							                    		</ul>
 							                    	</div>
 							                    	<div class="col-md-4">
 														<ul>
-							                    			<li><a href="blog.html">Blog & News</a></li>
-							                    			<li><a href="blog-alt.html">Blog Alternative</a></li>
-							                    			<li><a href="blog-single.html">Single Blog</a></li>
-							                    			<li><a href="page.html">Default Page</a></li>
-							                    			<li><a href="page-fullwidth.html">Fullwidth Page</a></li>
-							                    			<li><a href="page-contact.html">Contact us</a></li>
-							                    			<li><a href="page-contact-alt.html">Contact Alternative</a></li>
-							                    			<li><a href="page-faqs.html">FAQ's Page</a></li>
-							                    			<li><a href="page-not-found.html">404 Not Found</a></li>
+															<li><a href="../../static/main/service-03.html">Psikoloji</a></li>
 							                    		</ul>
 							                    	</div>
 							                    </div>
@@ -104,11 +111,15 @@
 						                </li>
 						            </ul>
 				                </li>
-				                <li><a href="page-about.html">What is SEO?</a></li>
-				                <li><a href="case-studies.html">Case Studies</a></li>
-				                <li class="active"><a href="blog.html">Blog</a></li>
-				                <li><a href="page-contact.html">Contact</a></li>
-                                <li class="lastlink hidden-xs hidden-sm"><a href="page-seo-analysis.html"><i class="glyphicon glyphicon-search"></i> free seo analysis</a></li>
+				                <li><a href="page-about">Allaamus Nedir?</a></li>
+				                <!--/<li><a href="../../static/main/case-studies.html">Case Studies</a></li> -->
+				                <li><a href="blog">Soru & Cevap</a></li>
+				                <li><a href="contact">İletişim</a></li>
+                                <li class="lastlink hidden-xs hidden-sm">
+									<a class="btn btn-primary" href="#">
+										<i class="glyphicon glyphicon-calendar"></i>Randevu Al
+									</a>
+								</li>
                             </ul>
 				        </div><!--/.nav-collapse -->
 				    </div><!--/.container-fluid -->
@@ -116,7 +127,7 @@
 			</div><!-- end container -->
 		</header><!-- end header -->
 
-		<section class="section transheader parallax" data-stellar-background-ratio="0.5" style="background-image:url('upload/bg_01.jpg');">
+		<section class="section transheader parallax" data-stellar-background-ratio="0.5" style="background-image:url('static/main/upload/bg_01.jpg');">
 			<div class="container">
 				<div class="row">	
 					<div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
