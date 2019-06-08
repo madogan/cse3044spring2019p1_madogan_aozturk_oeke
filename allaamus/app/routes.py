@@ -10,8 +10,7 @@ from flask import render_template, request, flash, redirect
 @app.route('/index', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    flash("deneme")
-    return render_template('main/index.html', error="deneme")
+    return render_template('main/index.html')
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -32,14 +31,16 @@ def register():
             if old_user is None:
                 db.session.add(new_user)
                 db.session.commit()
+                flash("Başarılı bir şekilde kayıt tamamlandı. Giriş yapabilirsiniz...", "success")
                 return redirect('login')
             else:  # user exist
-                return render_template('error/error.html', error={'code': 31, 'message': "User exist"})
+                flash("Bu kullanıcı mevcut.", "warning")
+                return redirect('register')
         else:
             return render_template("auth/register.html", title="Kayıt", form=register_form)
     if request.method == "GET":
         return render_template("auth/register.html", title="Kayıt", form=register_form)
-    return render_template('error/error.html', error={'code': 404, 'message': "Not Found!"})
+    return render_template('error/error.html', error={'code': 400, 'message': "Bad Request!"})
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
