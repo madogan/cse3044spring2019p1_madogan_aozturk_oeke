@@ -2,8 +2,7 @@ from app import app
 from os.path import join
 from app.forms import LoginForm, RegisterForm
 from flask import render_template, request, flash, redirect
-from app.models import *
-from app import db
+
 
 @app.route('/index', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
@@ -13,32 +12,8 @@ def index():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    """
-        TODO:
-            * Hata mesajı döndürme mekanizması eklenecek.
-    """
     register_form = RegisterForm()
-    if request.method == "POST":
-        if register_form.validate_on_submit():
-            new_user = User(
-                first_name = register_form.first_name.data,
-                last_name = register_form.last_name.data,
-                email = register_form.email.data,
-                password_hash = register_form.password.data,
-                user_type = register_form.user_type.data
-            )
-            if User.query.get(new_user) is not None:
-                
-                db.session.add(new_user)
-                db.session.commit()
-            else:  # user exist
-                render_template('error/error.html', error={'code': 31, 'message': "User exist"})
-            return redirect('login')
-        else:
-            return render_template("auth/register.html", title="Kayıt", form=register_form)
-    if request.method == "GET":
-        return render_template("auth/register.html", title="Kayıt", form=register_form)
-    return render_template('error/error.html', error={'code': 404, 'message': "Not Found!"})
+    return render_template("auth/register.html", title="Kayıt", form=register_form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -63,6 +38,10 @@ def blog():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     return render_template('main/page-contact.html')
+
+@app.route('/experts', methods=['GET', 'POST'])
+def experts():
+    return render_template('main/page-services.html')
 
 @app.errorhandler(404)
 def error(e):
