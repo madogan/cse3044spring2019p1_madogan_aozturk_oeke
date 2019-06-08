@@ -14,10 +14,6 @@ def index():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    """
-        TODO:
-            * Hata mesajı döndürme mekanizması eklenecek.
-    """
     register_form = RegisterForm()
     if request.method == "POST":
         if register_form.validate_on_submit():
@@ -66,6 +62,10 @@ def blog():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     return render_template('main/page-contact.html')
+
+@app.route('/experts', methods=['GET', 'POST'])
+def experts():
+    return render_template('main/page-services.html')
 
 @app.errorhandler(404)
 def error(e):
