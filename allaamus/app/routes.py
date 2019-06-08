@@ -1,15 +1,17 @@
+from app import db
 from app import app
+from app.models import *
 from os.path import join
 from app.forms import LoginForm, RegisterForm
+from flask_login import current_user, login_user
 from flask import render_template, request, flash, redirect
-from app.models import *
-from app import db
-from werkzeug.security import generate_password_hash
+
 
 @app.route('/index', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('main/index.html')
+    flash("deneme")
+    return render_template('main/index.html', error="deneme")
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -21,9 +23,9 @@ def register():
                 first_name = register_form.first_name.data,
                 last_name = register_form.last_name.data,
                 email = register_form.email.data,
-                password_hash = generate_password_hash(register_form.password.data),
                 user_type = register_form.user_type.data
             )
+            new_user.set_password(register_form.password.data)
 
             old_user = db.session.query(User).filter(User.email==new_user.email).first()
 
