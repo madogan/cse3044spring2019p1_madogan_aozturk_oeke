@@ -49,6 +49,17 @@
 					</a>
 				</div>
 			</form>
+			{% with messages = get_flashed_messages(with_categories=true) %}
+				{% if messages %}
+					<ul class=flashes>
+						{% for category, message in messages %}
+							<div class="notice notice-{{ category }}">
+								{{ message }}
+							</div>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			{% endwith %}
 		</div>
 	</div>
 </div>

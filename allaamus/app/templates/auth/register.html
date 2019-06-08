@@ -3,8 +3,8 @@
 {% block body %}
 <div class="limiter">
 	<div class="container-login100">
+		
 		<div class="wrap-login100">
-			<!-- Image -->
 			<div class="login100-pic js-tilt" data-tilt>
 				<img src="../static/login/images/img-01.png" alt="IMG">
 			</div>
@@ -115,6 +115,17 @@
 					</a>
 				</div>
 			</form>
+			{% with messages = get_flashed_messages(with_categories=true) %}
+				{% if messages %}
+					<ul class=flashes>
+						{% for category, message in messages %}
+								<div class="notice notice-{{ category }}">
+									{{ message }}
+								</div>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			{% endwith %}
 		</div>
 	</div>
 </div>
