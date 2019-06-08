@@ -4,6 +4,7 @@ from app.forms import LoginForm, RegisterForm
 from flask import render_template, request, flash, redirect
 from app.models import *
 from app import db
+from werkzeug.security import generate_password_hash
 
 @app.route('/index', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
@@ -24,16 +25,18 @@ def register():
                 first_name = register_form.first_name.data,
                 last_name = register_form.last_name.data,
                 email = register_form.email.data,
-                password_hash = register_form.password.data,
+                password_hash = generate_password_hash(register_form.password.data),
                 user_type = register_form.user_type.data
             )
-            if User.query.get(new_user) is not None:
-                
+
+            old_user = db.session.query(User).filter(User.email==new_user.email).first()
+
+            if old_user is None:
                 db.session.add(new_user)
                 db.session.commit()
+                return redirect('login')
             else:  # user exist
-                render_template('error/error.html', error={'code': 31, 'message': "User exist"})
-            return redirect('login')
+                return render_template('error/error.html', error={'code': 31, 'message': "User exist"})
         else:
             return render_template("auth/register.html", title="Kayıt", form=register_form)
     if request.method == "GET":
