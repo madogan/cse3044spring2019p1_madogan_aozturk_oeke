@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js " lang="tr"> <!--<![endif]-->
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <!-- Mobile Meta -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        
+        <!-- Site Meta -->
+        {% if title %}
+            <title>{{ title }}</title>
+        {% else %}
+            <title> Allaamus </title>
+        {% endif %}
+        
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        
+        <!-- Site Icons -->
+        <link rel="shortcut icon" href="../../static/main/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="../../static/main/images/apple-touch-icon.png">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700" rel="stylesheet"> 
+
+        <!-- Custom & Default Styles -->
+        <link rel="stylesheet" href="../../static/main/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../static/main/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../static/main/css/animate.css">
+        <link rel="stylesheet" href="../../static/main/css/carousel.css">
+        <link rel="stylesheet" href="../../static/main/style.css">
+        {% block head %}{% endblock head %}
+    </head>
+    <body>
+        {% block body %}{% endblock body %}
+        <!-- jQuery Files -->
+        <script src="../../static/main/js/jquery.min.js"></script>
+        <script src="../../static/main/js/bootstrap.min.js"></script>
+        <script src="../../static/main/js/parallax.js"></script>
+        <script src="../../static/main/js/animate.js"></script>
+        <script src="../../static/main/js/owl.carousel.js"></script>
+        <script src="../../static/main/js/custom.js"></script>
+    </body>
+</html>
