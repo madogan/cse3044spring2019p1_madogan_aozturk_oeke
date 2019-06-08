@@ -51,6 +51,19 @@ def login():
     return render_template('auth/login.html', form=form)
 
 
+@app.route('/page-about', methods=['GET', 'POST'])
+def page_about():
+    return render_template('main/page-about.html')
+    
+@app.route('/blog', methods=['GET', 'POST'])
+def blog():
+    return render_template('main/blog.html')
+
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    return render_template('main/page-contact.html')
+
 @app.errorhandler(404)
 def error(e):
     """
