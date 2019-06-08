@@ -10,8 +10,7 @@ from flask import render_template, request, flash, redirect
 @app.route('/index', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    flash("deneme")
-    return render_template('main/index.html', error="deneme")
+    return render_template('main/index.html')
 
 
 @app.route('/register', methods=['GET', 'POST'])
