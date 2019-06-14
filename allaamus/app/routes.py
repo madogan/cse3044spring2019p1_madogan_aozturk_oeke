@@ -86,6 +86,10 @@ def contact():
 def experts():
     return render_template('main/page-services.html')
 
+@app.route('/tip', methods=['GET', 'POST'])
+def tip():
+    return render_template('main/service-01.html')    
+
 @app.errorhandler(404)
 def error(e):
     """
