@@ -49,7 +49,7 @@
 				</div>
 
 				<div class="wrap-input100 validate-input">
-					{{ form.email(class_='input100', type='text', placeholder='Eposta') }}
+					{{ form.email(class_='input100', type='email', placeholder='Eposta') }}
 					
 					{% for error in form.email.errors %}
 						<span class="alert-validate" data-validate="{{ error }}"></span>
