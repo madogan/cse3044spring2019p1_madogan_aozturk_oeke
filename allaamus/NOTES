@@ -4,6 +4,8 @@ Command:
 Color Palet:
 	https://colorhunt.co/palette/147387
 
-Tutorial Link:
+Flask Tutorial Link:
 	https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
-	venv\Scripts\activate
+
+Scrapy Tutorail Link:
+	http://newcoder.io/scrape/intro/

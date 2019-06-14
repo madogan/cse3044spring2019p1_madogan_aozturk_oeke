@@ -14,6 +14,14 @@ BOT_NAME = 'AllaamusScraper'
 SPIDER_MODULES = ['AllaamusScraper.spiders']
 NEWSPIDER_MODULE = 'AllaamusScraper.spiders'
 
+DATABASE = {
+    'drivername': 'postgres',
+    'host': 'localhost',
+    'port': '5432',
+    'username': 'madogan',
+    'password': 'admin',
+    'database': 'allaamus_db'
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'AllaamusScraper (+http://www.yourdomain.com)'
