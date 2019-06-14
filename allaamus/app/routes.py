@@ -56,7 +56,7 @@ def login():
     return render_template('auth/login.html', form=form)
 
 
-@app.route('/page-about', methods=['GET', 'POST'])
+@app.route('/about', methods=['GET', 'POST'])
 def page_about():
     return render_template('main/page-about.html')
     
