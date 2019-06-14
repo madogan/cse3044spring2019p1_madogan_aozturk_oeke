@@ -36,16 +36,15 @@ class RegisterForm(FlaskForm):
     ])
     submit = SubmitField("Kayıt")
 
-    def pre_process_user_type(self, field):
-        pass
 
 class LoginForm(FlaskForm):
     email = StringField('Eposta', [
-        InputRequired(),
-        Email()
+        DataRequired(message="Bu alan boş bırakılamaz."),
+        Email(message="Email biçimi doğru değil: xyz@abc.com şeklinde olmalı.")
     ])
     password = PasswordField('Parola', [
-        InputRequired(),
-        Length(min=6, max=24)
+        DataRequired(message="Bu alan boş bırakılamaz."),
+        Length(min=6, max=24, message="Bu alan en az 6 en fazla 24 harf içerebilir."),
+        Regexp(r'^[a-zA-ZğüşöçĞÜİŞıÇÖ0-9@#$%^&+=]+$', re.I | re.U, message="Geçersiz karakter içeren parola.")
     ])
     submit = SubmitField('Giriş')
