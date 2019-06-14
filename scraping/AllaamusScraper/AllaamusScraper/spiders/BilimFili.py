@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup as bs
 
 
 class BilimfiliSpider(scrapy.Spider):
-    name = 'BilimFili'
+    name = 'Bilimfili'
     allowed_domains = ['bilimfili.com']
     base_url = 'https://bilimfili.com'
     last_page_nums = dict()
@@ -33,18 +33,6 @@ class BilimfiliSpider(scrapy.Spider):
             yield scrapy.Request(url=post_url,
                                  callback=self.parse_content,
                                  meta={"category_end_point": response.meta["category_end_point"]})
-
-        # if "/page/" in response.url:
-        #     current_page_num = int(response.url.split("/")[-2])
-        # else:
-        #     current_page_num = 2
-        # #
-        # # print("*" * 150)
-        # # print(self.last_page_nums)
-        # # if current_page_num <= self.last_page_nums[response.meta["category_end_point"]]:
-        # #     print("*" * 150, " TEST ")
-        # #     next_page_url = self.base_url + response.meta["category_end_point"] + "page/" + str(current_page_num)
-        # #     scrapy.Request(next_page_url, callback=self.parse, meta={"category": response.meta["category_end_point"]})
 
     def parse_content(self, response):
         yield {

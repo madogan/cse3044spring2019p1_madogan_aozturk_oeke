@@ -19,8 +19,6 @@ Ali Öztürk:
 		*** Adamın takvimindeki boş yerleri seçip, satın alma yapabilecek.
 
 Ali Doğan:
-* Seçilen kategoriler hakkında internetten veri toplanıp veri tabanı oluşturulacak.
-* Kategori ve soru verisi üzerinden eldeki verilere göre arama yapılacak.
-* Geçici kullanıcılar oluşturulacak.
-* Uzmanlar sayfasına kategoriye göre filtreleme özelliği eklenecek.
-* "Randevu Al" tuşu "Uzmanlar" sayfasına yönlendirecek.
+* Makaleler veritabanına yazılacak
+* Usta resimleri ve hakkımızdaki gibi bilgileri ile veritabanı düzenlenecek
+* 
