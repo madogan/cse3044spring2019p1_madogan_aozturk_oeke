@@ -1,7 +1,5 @@
 {% extends 'auth/auth_base.html' %}
 
-{% block title %} Giriş {% endblock title %}
-
 {% block body %}
 <div class="limiter">
 	<div class="container-login100">
@@ -11,30 +9,44 @@
 			</div>
 
 			<form method="POST" class="login100-form validate-form">
+				<!-- For avoiding CSRF attacks. -->
+				{{ form.hidden_tag() }}
+
 				<span class="login100-form-title">
 					Allaamus Giriş
 				</span>
 
-				<div class="wrap-input100 validate-input" data-validate = "Geçerli eposta formatı: ex@abc.xyz">
-					<input class="input100" type="text" name="email" placeholder="Eposta">
+				<div class="wrap-input100 validate-input">
+					{{ form.email(class_='input100', type='text', placeholder='Eposta') }}
+					
+					{% for error in form.email.errors %}
+						<span class="alert-validate" data-validate="{{ error }}"></span>
+					{% endfor %}
+
+					<!--<input class="input100" type="text" name="email" placeholder="E-posta">-->
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
 						<i class="fa fa-envelope" aria-hidden="true"></i>
 					</span>
 				</div>
 
-				<div class="wrap-input100 validate-input" data-validate = "Parola gereklidir.">
-					<input class="input100" type="password" name="pass" placeholder="Parola">
+				<div class="wrap-input100 validate-input">
+					{{ form.password(class_='input100', type='password', placeholder='Parola') }}
+					
+					{% for error in form.password.errors %}
+						<span class="alert-validate" data-validate="{{ error }}"></span>
+					{% endfor %}
+
+					<!--<input class="input100" type="password" name="password" placeholder="Parola">-->
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
 						<i class="fa fa-lock" aria-hidden="true"></i>
 					</span>
 				</div>
-				
+
 				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
-						Giriş
-					</button>
+					{{ form.submit(class_='login100-form-btn') }}
+					<!--<button class="login100-form-btn"> Giriş </button>-->
 				</div>
 
 				<div class="text-center p-t-12">

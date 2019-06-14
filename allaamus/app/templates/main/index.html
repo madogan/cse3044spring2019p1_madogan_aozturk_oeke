@@ -22,8 +22,13 @@
 				<div class="col-md-6 col-sm-6">
 					<nav class="topbar-menu">
 						<ul class="list-inline text-right navbar-right">
-							<li><a href="{{ url_for('login') }}">Giriş</a></li>
-							<li><a href="{{ url_for('register') }}">Kayıt Ol</a></li>                               
+							{% if current_user.is_anonymous %}
+								<li><a href="{{ url_for('login') }}">Giriş</a></li>
+								<li><a href="{{ url_for('register') }}">Kayıt Ol</a></li>
+							{% else %}
+								<li><a href="#">Hoşgeldiniz</a></li>
+								<li><a href="{{ url_for('logout') }}">Çıkış</a></li>
+							{% endif %}                             
 						</ul><!-- end list -->
 					</nav><!-- end menu -->
 				</div><!-- end col -->
