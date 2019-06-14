@@ -3,8 +3,8 @@ from app import app
 from app.models import *
 from os.path import join
 from app.forms import LoginForm, RegisterForm
-from flask_login import current_user, login_user
-from flask import render_template, request, flash, redirect
+from flask_login import current_user, login_user, logout_user
+from flask import render_template, request, flash, redirect, url_for
 
 
 @app.route('/index', methods=['GET', 'POST'])
@@ -15,6 +15,10 @@ def index():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        flash("Halihazırda bir kullanıcı giriş yapmış bulunmaktadır.")
+        return redirect(url_for('login'))
+
     register_form = RegisterForm()
     if request.method == "POST":
         if register_form.validate_on_submit():
@@ -46,14 +50,23 @@ def register():
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
-        
-    form = LoginForm()
-    print(request.form)
-    if request.method == 'POST':
-        if form.validate_on_submit():
-            flash('Login requested for user {}, remember_me={}'.format(form.email.data, form.remember_me.data))
-            return redirect('/')
-    return render_template('auth/login.html', form=form)
+    
+    login_form = LoginForm()
+    if request.method == "POST":
+        if login_form.validate_on_submit():
+            user = User.query.filter_by(email=login_form.email.data).first()
+            if user is None or not user.check_password(login_form.password.data):
+                flash('Geçersiz eposta veya parola.')
+                return redirect(url_for('login'))
+            login_user(user)
+            return redirect(url_for('index'))
+    return render_template('auth/login.html', form=login_form)
+
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
 
 
 @app.route('/about', methods=['GET', 'POST'])
