@@ -90,6 +90,15 @@ def experts():
 def tip():
     return render_template('main/service-01.html')    
 
+    
+@app.route('/teknoloji', methods=['GET', 'POST'])
+def teknoloji():
+    return render_template('main/service-02.html') 
+
+@app.route('/egitim', methods=['GET', 'POST'])
+def egitim():
+    return render_template('main/service-03.html') 
+
 @app.errorhandler(404)
 def error(e):
     """
