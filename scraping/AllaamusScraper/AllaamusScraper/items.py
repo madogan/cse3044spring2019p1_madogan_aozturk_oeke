@@ -8,7 +8,7 @@
 import scrapy
 
 
-class BilimFii(scrapy.Item):
+class BilimfiliItem(scrapy.Item):
     source = scrapy.Field()
     url = scrapy.Field()
     category = scrapy.Field()
