@@ -76,6 +76,8 @@ ROBOTSTXT_OBEY = True
 #    'AllaamusScraper.pipelines.AllaamusscraperPipeline': 300,
 #}
 
+ITEM_PIPELINE = ['AllaamusScraper.pipelines.AllaamusscraperPipeline']
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True

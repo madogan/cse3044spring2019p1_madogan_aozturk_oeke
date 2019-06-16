@@ -3,6 +3,7 @@
 import scrapy
 import requests
 
+from AllaamusScraper.items import BilimFii as Item
 from bs4 import BeautifulSoup as bs
 
 
@@ -35,15 +36,15 @@ class BilimfiliSpider(scrapy.Spider):
                                  meta={"category_end_point": response.meta["category_end_point"]})
 
     def parse_content(self, response):
-        yield {
-            "source": "bilimfili.com",
-            "url": response.url,
-            "category": response.meta["category_end_point"].split("/")[-2],
-            "date": response.css(".singlePostTabLeftTop .simpleDate::text")[0].get(),
-            "title": response.css("h1.title::text").get(),
-            "content": " ".join([bs(p.get(), "lxml").get_text() for p in response.css(".pageDetailContent p")]).strip(),
-            "tags": [t.css("a::text").get() for t in response.css(".listTags ul li")]   
-        }
+        yield Item(
+            source="bilimfili.com",
+            url=response.url,
+            category=response.meta["category_end_point"].split("/")[-2],
+            date=response.css(".singlePostTabLeftTop .simpleDate::text")[0].get(),
+            title=response.css("h1.title::text").get(),
+            content=" ".join([bs(p.get(), "lxml").get_text() for p in response.css(".pageDetailContent p")]).strip(),
+            tags=[t.css("a::text").get() for t in response.css(".listTags ul li")]  
+        )
 
     @staticmethod
     def get_last_page_num(_url, _category_end_point):

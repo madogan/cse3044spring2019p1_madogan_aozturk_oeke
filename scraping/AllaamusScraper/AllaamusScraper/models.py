@@ -1,17 +1,27 @@
-from sqlalchemy import *
+import sqlalchemy as db
+
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.engine.url import URL
 
-import settings
+import AllaamusScraper.settings
+
+DeclarativeBase = declarative_base()
 
 def db_connect():
     """
     Performs database connection using database settings from settings.py.
     Returns sqlalchemy engine instance
     """
-    return create_engine(URL(**settings.DATABASE))
+    engine = db.create_engine(URL(**settings.DATABASE))
+    return engine
 
 
-class Article(db.Model):
+def create_deals_table(engine):
+    """"""
+    DeclarativeBase.metadata.create_all(engine)
+
+
+class BilimfiliItem(DeclarativeBase):
     __tablename__ = 'article'
     id = db.Column(db.Integer, index=True, primary_key=True)
     source = db.Column(db.String(), nullable=False)
