@@ -12,3 +12,5 @@ Scrapy Tutorail Link:
 
 Twisted Library Windows Specialized Link:
 	https://www.lfd.uci.edu/~gohlke/pythonlibs/
+
+	venv\Scripts\activate
