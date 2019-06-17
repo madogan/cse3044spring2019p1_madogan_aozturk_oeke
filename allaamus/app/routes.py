@@ -69,6 +69,11 @@ def logout():
     return redirect(url_for('index'))
 
 
+@app.route('/user/<user_id>')
+def user(user_id):
+    return render_template('user/main.html')
+
+
 @app.route('/about', methods=['GET', 'POST'])
 def page_about():
     return render_template('main/page-about.html')

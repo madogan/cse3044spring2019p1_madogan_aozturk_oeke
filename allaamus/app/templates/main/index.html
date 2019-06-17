@@ -26,7 +26,7 @@
 								<li><a href="{{ url_for('login') }}">Giriş</a></li>
 								<li><a href="{{ url_for('register') }}">Kayıt Ol</a></li>
 							{% else %}
-								<li><a href="#">Hoşgeldiniz</a></li>
+								<li><a href="#">Hoşgeldin {{ current_user.first_name }}</a></li>
 								<li><a href="{{ url_for('logout') }}">Çıkış</a></li>
 							{% endif %}                             
 						</ul><!-- end list -->
