@@ -103,6 +103,10 @@ def teknoloji():
 def egitim():
     return render_template('main/service-03.html') 
 
+@app.route('/soru-1', methods=['GET', 'POST'])
+def soru():
+    return render_template('main/soru-1.html') 
+
 @app.errorhandler(404)
 def error(e):
     """
