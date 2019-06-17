@@ -30,10 +30,6 @@ class RegisterForm(FlaskForm):
         EqualTo('password', message="İki parolanın uyuşması gerek."),
         Regexp(r'^[a-zA-ZğüşöçĞÜİŞıÇÖ0-9@#$%^&+=]+$', re.I | re.U, message="Geçersiz karakter içeren parola.")
     ])
-    user_type = StringField("Kullanıcı Türü", [
-        DataRequired(message="Bu alan boş bırakılamaz."),
-        Regexp(r'(meraklı|usta)', re.I | re.U, message="Kullanıcı türü: 'meraklı' yada 'usta' olmalıdır.")
-    ])
     submit = SubmitField("Kayıt")
 
 
