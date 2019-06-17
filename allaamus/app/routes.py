@@ -75,36 +75,43 @@ def user(user_id):
 
 @app.route('/about', methods=['GET', 'POST'])
 def about():
-    return render_template('main/page-about.html')
-    
+    return render_template('main/about.html')
+
+
 @app.route('/q_a', methods=['GET', 'POST'])
 def q_a():
-    return render_template('main/blog.html')
+    return render_template('main/q_a.html')
 
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('main/page-contact.html')
+    return render_template('main/contact.html')
+
 
 @app.route('/experts', methods=['GET', 'POST'])
 def experts():
-    return render_template('main/page-services.html')
+    return render_template('main/experts.html')
+
 
 @app.route('/tip', methods=['GET', 'POST'])
 def tip():
     return render_template('main/service-01.html')    
 
+
 @app.route('/teknoloji', methods=['GET', 'POST'])
 def teknoloji():
     return render_template('main/service-02.html') 
+
 
 @app.route('/egitim', methods=['GET', 'POST'])
 def egitim():
     return render_template('main/service-03.html') 
 
+
 @app.route('/soru-1', methods=['GET', 'POST'])
 def soru():
     return render_template('main/soru-1.html') 
+
 
 @app.errorhandler(404)
 def error(e):

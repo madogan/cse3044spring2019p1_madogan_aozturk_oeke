@@ -3,345 +3,198 @@
 {% block head %}{% endblock head %}
 
 {% block body %}
-<div id="wrapper">
-	<div class="topbar">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-sm-6 hidden-xs">
-					<nav class="topbar-menu">
-						<ul class="list-inline">
-							<li>Bizi Takip et: </li>
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							
-						</ul><!-- end list -->
-					</nav><!-- end menu -->
-				</div><!-- end col -->
-
-				<div class="col-md-6 col-sm-6">
-					<nav class="topbar-menu">
-						<ul class="list-inline text-right navbar-right">
-							{% if current_user.is_anonymous %}
-								<li><a href="{{ url_for('login') }}">Giriş</a></li>
-								<li><a href="{{ url_for('register') }}">Kayıt Ol</a></li>
-							{% else %}
-								<li><a href="#">Hoşgeldin {{ current_user.first_name }}</a></li>
-								<li><a href="{{ url_for('logout') }}">Çıkış</a></li>
-							{% endif %}                             
-						</ul><!-- end list -->
-					</nav><!-- end menu -->
-				</div><!-- end col -->
-			</div><!-- end row -->
-		</div><!-- end container -->
-	</div><!-- end topbar -->
-	
-	<header class="header site-header">
-		<div class="container">
-			<nav class="navbar navbar-default yamm">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="index"><img src="../../static/main/images/logo.png" alt="allaamus"></a>
-					</div>
-					<div id="navbar" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav navbar-right">
-							<li class="active"><a href="{{ url_for('index') }}">Anasayfa</a></li>
-							<li><a href="{{ url_for('experts') }}">Ustalar</a></li>
-							<li><a href="{{ url_for('about') }}">Allaamus Nedir?</a></li>
-							<li><a href="{{ url_for('q_a') }}">Soru & Cevap</a></li>
-							
-							<li class="lastlink hidden-xs hidden-sm">
-								<a class="btn btn-primary" href="{{ url_for('experts') }}">
-									<i class="glyphicon glyphicon-calendar"></i>Randevu Al
-								</a>
-							</li>
-						</ul>
-					</div><!--/.nav-collapse -->
-				</div><!--/.container-fluid -->
-			</nav><!-- end nav -->
-		</div><!-- end container -->
-	</header><!-- end header -->
-
-	<section class="section transheader homepage parallax" data-stellar-background-ratio="0.5" style="background-image:url('../../static/main/upload/bg_04.jpg');">
-		<div class="container">
-			<div class="row">	
-				<div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
-					<h2>Soru Ara</h2>
-					<!--<p class="lead">Now you can customize your SEO service according to your need</p> -->
-					<form class="calculateform">
-						<div class="item-box">
-							<div class="item-top form-inline">
-								<div class="form-group">
-									<div class="input-group2">
-										<span class="input-addon">
-											<i class="fa fa-link"></i>
-										</span>
-										<input class="form-control" id="urladres" name="url" placeholder="Lütfen sorunuzu giriniz... ">
-									</div>
+<section class="section transheader homepage parallax" data-stellar-background-ratio="0.5" style="background-image:url('../../static/main/upload/bg_04.jpg');">
+	<div class="container">
+		<div class="row">	
+			<div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
+				<h2>Soru Ara</h2>
+				<!--<p class="lead">Now you can customize your SEO service according to your need</p> -->
+				<form class="calculateform">
+					<div class="item-box">
+						<div class="item-top form-inline">
+							<div class="form-group">
+								<div class="input-group2">
+									<span class="input-addon">
+										<i class="fa fa-link"></i>
+									</span>
+									<input class="form-control" id="urladres" name="url" placeholder="Lütfen sorunuzu giriniz... ">
 								</div>
-								<input type="submit" name="send" value="Ara" class="btn btn-default" />
 							</div>
+							<input type="submit" name="send" value="Ara" class="btn btn-default" />
 						</div>
-					</form>
-				</div><!-- end col -->
-			</div><!-- end row -->
-		</div><!-- end container -->
-	</section><!-- end section -->
-
-	<section class="section nopad">
-		<div class="container-fluid">
-			<div class="row text-center">
-				<div class="col-md-3 col-sm-6 nopad first">
-					<div class="">
-						<i class=""></i>
-						<p></p>
-					</div><!-- end home-service -->
-				</div><!-- end col -->
-
-				<div class="col-md-3 col-sm-6 nopad">
-					<div class="home-service c2">
-						<i class="flaticon-chat"></i>
-						<p>Uzmanlar</p>
-					</div><!-- end home-service -->
-				</div><!-- end col -->
-
-				<div class="col-md-3 col-sm-6 nopad">
-					<div class="home-service c3">
-						<i class="flaticon-domain"></i>
-						<p>Mearklılar</p>
-					</div><!-- end home-service -->
-				</div><!-- end col -->
-
-				
-			</div><!-- end row -->
-		</div><!-- end container -->
-	</section><!-- end section -->
-
-	<section class="section overfree">
-		<div class="icon-center"><i class="fa fa-anchor"></i></div>
-		<div class="container">
-			<div class="section-title text-center">
-				<small>Türkiye'nin En Büyük Çözüm Platformuna Hoşgeldiniz</small>
-				<h3>ALLAAMUS</h3>
-				<hr>
-				<p class="lead"> Türkiye'nin en büyük çözüm platformu olan Allaamus ile sorularınıza cevap bulabilir veya <br>uzmanı olduğunuz konuda soruları olan insanlara yardım edebilirsiniz.</p>
-			</div><!-- end section-title -->
-
-			<div class="row service-list text-center">
-				<div class="col-md-4 col-sm-12 col-xs-12 first">
-					<div class="service-wrapper wow fadeIn">	
-						<i class="flaticon-competition"></i>
-						<div class="service-details">
-							<h4><a href="service-01.html" title="">Allaamus ne yapar?</a></h4>
-							<p>Türkiye'nin en büyük çözüm portalı olan Allaamus , soruları olan insanları ve alanında uzman kişileri bir araya getirir. </p>
-							
-						</div>
-					</div><!-- end service-wrapper -->
-				</div><!-- end col -->
-
-				<div class="col-md-4 col-sm-12 col-xs-12">
-					<div class="service-wrapper wow fadeIn">	
-						<i class="flaticon-content"></i>
-						<div class="service-details">
-							<h4><a href="service-02.html" title="">Çözümün Allaamus'ta !</a></h4>
-							<p>Allaamus ile sorularınızın çözümünü geçmiş çözümler içinden aratabilir veya alanında uzaman kişilere danışırak çözüm bulabilirisiniz. </p>
-							
-						</div>
-					</div><!-- end service-wrapper -->
-				</div><!-- end col -->
-
-				<div class="col-md-4 col-sm-12 col-xs-12 last">
-					<div class="service-wrapper wow fadeIn">	
-						<i class="flaticon-html"></i>
-						<div class="service-details">
-							<h4><a href="service-02.html" title="">Allaamus ile Yeteneklerini Göster</a></h4>
-							<p>Uzamanı olduğunuz alan ile ilgili soruları cevaplayarak insanların sorularına çözümler bulabilirsiniz.</p>
-							
-						</div>
-					</div><!-- end service-wrapper -->
-				</div><!-- end col -->
-			</div><!-- end row -->
-
-			<hr class="invis2">
-
-			<div class="row">
-				<div class="col-md-4">
-					<div class="milestone-counter c1">
-						<img src="../../static/main/images/icon_07.png" alt="" class="alignleft">
-						<h3 class="stat-count">2901</h3>
-						<p>Kullanıcılar</p>
 					</div>
-				</div>
+				</form>
+			</div><!-- end col -->
+		</div><!-- end row -->
+	</div><!-- end container -->
+</section><!-- end section -->
 
-				<div class="col-md-4">
-					<div class="milestone-counter c2">
-						<img src="../../static/main/images/icon_08.png" alt="" class="alignleft">
-						<h3 class="stat-count">304</h3>
-						<p>Görüşme</p>
-					</div>
-				</div>
+<section class="section nopad">
+	<div class="container-fluid">
+		<div class="row text-center">
+			<div class="col-md-3 col-sm-6 nopad first">
+				<div class="">
+					<i class=""></i>
+					<p></p>
+				</div><!-- end home-service -->
+			</div><!-- end col -->
 
-				<div class="col-md-4">
-					<div class="milestone-counter c3">
-						<img src="../../static/main/images/icon_09.png" alt="" class="alignleft">
-						<h3 class="stat-count">890</h3>
-						<p>Sorular</p>
+			<div class="col-md-3 col-sm-6 nopad">
+				<div class="home-service c2">
+					<i class="flaticon-chat"></i>
+					<p>Uzmanlar</p>
+				</div><!-- end home-service -->
+			</div><!-- end col -->
+
+			<div class="col-md-3 col-sm-6 nopad">
+				<div class="home-service c3">
+					<i class="flaticon-domain"></i>
+					<p>Mearklılar</p>
+				</div><!-- end home-service -->
+			</div><!-- end col -->
+
+			
+		</div><!-- end row -->
+	</div><!-- end container -->
+</section><!-- end section -->
+
+<section class="section overfree">
+	<div class="icon-center"><i class="fa fa-anchor"></i></div>
+	<div class="container">
+		<div class="section-title text-center">
+			<small>Türkiye'nin En Büyük Çözüm Platformuna Hoşgeldiniz</small>
+			<h3>ALLAAMUS</h3>
+			<hr>
+			<p class="lead"> Türkiye'nin en büyük çözüm platformu olan Allaamus ile sorularınıza cevap bulabilir veya <br>uzmanı olduğunuz konuda soruları olan insanlara yardım edebilirsiniz.</p>
+		</div><!-- end section-title -->
+
+		<div class="row service-list text-center">
+			<div class="col-md-4 col-sm-12 col-xs-12 first">
+				<div class="service-wrapper wow fadeIn">	
+					<i class="flaticon-competition"></i>
+					<div class="service-details">
+						<h4><a href="service-01.html" title="">Allaamus ne yapar?</a></h4>
+						<p>Türkiye'nin en büyük çözüm portalı olan Allaamus , soruları olan insanları ve alanında uzman kişileri bir araya getirir. </p>
+						
 					</div>
+				</div><!-- end service-wrapper -->
+			</div><!-- end col -->
+
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<div class="service-wrapper wow fadeIn">	
+					<i class="flaticon-content"></i>
+					<div class="service-details">
+						<h4><a href="service-02.html" title="">Çözümün Allaamus'ta !</a></h4>
+						<p>Allaamus ile sorularınızın çözümünü geçmiş çözümler içinden aratabilir veya alanında uzaman kişilere danışırak çözüm bulabilirisiniz. </p>
+						
+					</div>
+				</div><!-- end service-wrapper -->
+			</div><!-- end col -->
+
+			<div class="col-md-4 col-sm-12 col-xs-12 last">
+				<div class="service-wrapper wow fadeIn">	
+					<i class="flaticon-html"></i>
+					<div class="service-details">
+						<h4><a href="service-02.html" title="">Allaamus ile Yeteneklerini Göster</a></h4>
+						<p>Uzamanı olduğunuz alan ile ilgili soruları cevaplayarak insanların sorularına çözümler bulabilirsiniz.</p>
+						
+					</div>
+				</div><!-- end service-wrapper -->
+			</div><!-- end col -->
+		</div><!-- end row -->
+
+		<hr class="invis2">
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="milestone-counter c1">
+					<img src="../../static/main/images/icon_07.png" alt="" class="alignleft">
+					<h3 class="stat-count">2901</h3>
+					<p>Kullanıcılar</p>
 				</div>
 			</div>
-		</div><!-- end container -->
-	</section><!-- end section -->
 
-	<section class="section bt">
-		<div class="container">
-			<div class="section-title text-center">
-				<small>Allaamus ile Sorularınıza Uzmanından Cevap Bulun</small>
-				<h3>Ustalar</h3>
-			</div><!-- end section-title -->
+			<div class="col-md-4">
+				<div class="milestone-counter c2">
+					<img src="../../static/main/images/icon_08.png" alt="" class="alignleft">
+					<h3 class="stat-count">304</h3>
+					<p>Görüşme</p>
+				</div>
+			</div>
 
-			<div class="owl-carousel owl-theme lightcasestudies withhover">
-				<div class="item-carousel">
-					<div class="case-box">
-						<img src="../../static/main/upload/case_teacher_1.jpg" alt="" class="img-responsive">
-						<div class="magnifier">
-							<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
-						</div>
-					</div><!-- end case-box -->
-				</div><!-- end col -->
-
-				<div class="item-carousel">
-					<div class="case-box">
-						<img src="../../static/main/upload/case_doctor_2.jpg" alt="" class="img-responsive">
-						<div class="magnifier">
-							<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
-						</div>
-					</div><!-- end case-box -->
-				</div><!-- end col -->
-
-				<div class="item-carousel">
-					<div class="case-box">
-						<img src="../../static/main/upload/case_engineer_1.jpg" alt="" class="img-responsive">
-						<div class="magnifier">
-							<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
-						</div>
-					</div><!-- end case-box -->
-				</div><!-- end col -->
-
-				<div class="item-carousel">
-					<div class="case-box">
-						<img src="../../static/main/upload/case_teacher_3.jpg" alt="" class="img-responsive">
-						<div class="magnifier">
-							<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
-						</div>
-					</div><!-- end case-box -->
-				</div><!-- end col -->
-
-				<div class="item-carousel">
-					<div class="case-box">
-						<img src="../../static/main/upload/case_engineer_2.jpg" alt="" class="img-responsive">
-						<div class="magnifier">
-							<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
-						</div>
-					</div><!-- end case-box -->
-				</div><!-- end col -->
-
-				<div class="item-carousel">
-					<div class="case-box">
-						<img src="../../static/main/upload/case_doctor_1.jpg" alt="" class="img-responsive">
-						<div class="magnifier">
-							<a href="case-studies-single.html"><i class="fa fa-link"></i></a> 
-						</div>
-					</div><!-- end case-box -->
-				</div><!-- end col -->
+			<div class="col-md-4">
+				<div class="milestone-counter c3">
+					<img src="../../static/main/images/icon_09.png" alt="" class="alignleft">
+					<h3 class="stat-count">890</h3>
+					<p>Sorular</p>
+				</div>
 			</div>
 		</div>
-	</section>
-	<footer class="footer primary-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 col-sm-4">
-					<div class="widget clearfix">
-						<h4 class="widget-title">Abone Ol</h4>
-						<div class="newsletter-widget">
-							<p>Haber bültenlerimizden istediğiniz zaman vazgeçebilirsiniz. Gizlilik politikamıza bakın.</p>
-							<form class="form-inline" role="search">
-								<div class="form-1">
-									<input type="text" class="form-control" placeholder="Mail Adresinizi giriniz ..">
-									<button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i></button>
-								</div>
-							</form>
-						</div><!-- end newsletter -->
-					</div><!-- end widget -->
-				</div><!-- end col -->
-				<div class="col-md-2 col-sm-2">
-					<div class="widget clearfix">
-						<h4 class="widget-title">Allaamus</h4>
-						<ul>
-							<li><a href="#">Hakkımızda</a></li>
-							<li><a href="#">Kariyer</a></li>
-							<li><a href="#">Trademark</a></li>
-							<li><a href="#">İletişim</a></li>
-						</ul>
-					</div><!-- end widget -->
-				</div><!-- end col -->
+	</div><!-- end container -->
+</section><!-- end section -->
 
-				<div class="col-md-2 col-sm-2">
-					<div class="widget clearfix">
-						<h4 class="widget-title">Kategoriler</h4>
-						<ul>
-							<li><a href="#"> Psikoloji</a></li>
-							<li><a href="#">Teknoloji</a></li>
-							<li><a href="#">Eğitim</a></li>
-							
-						</ul>
-					</div><!-- end widget -->
-				</div><!-- end col -->
+<section class="section bt">
+	<div class="container">
+		<div class="section-title text-center">
+			<small>Allaamus ile Sorularınıza Uzmanından Cevap Bulun</small>
+			<h3>Ustalar</h3>
+		</div><!-- end section-title -->
 
-				<div class="col-md-2 col-sm-2">
-					<div class="widget clearfix">
-						<h4 class="widget-title">İNDİR</h4>
-						<ul>
-							<li><a href="#">MAC/OSX</a></li>
-							<li><a href="#">Android</a></li>
-							
-						</ul>
-					</div><!-- end widget -->
-				</div><!-- end col -->
+		<div class="owl-carousel owl-theme lightcasestudies withhover">
+			<div class="item-carousel">
+				<div class="case-box">
+					<img src="../../static/main/upload/case_teacher_1.jpg" alt="" class="img-responsive">
+					<div class="magnifier">
+						<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
+					</div>
+				</div><!-- end case-box -->
+			</div><!-- end col -->
 
-				<div class="col-md-2 col-sm-2">
-					<div class="widget clearfix">
-						<h4 class="widget-title">Bizi Takip Et</h4>
-						<ul>
-							<li><a href="#">Facebook</a></li>
-							<li><a href="#">Twitter</a></li>
-							<li><a href="#">Linkedin</a></li>
-						</ul>
-					</div><!-- end widget -->
-				</div><!-- end col -->
-			</div><!-- end row -->
-		</div><!-- end container -->
-	</footer><!-- end primary-footer -->
+			<div class="item-carousel">
+				<div class="case-box">
+					<img src="../../static/main/upload/case_doctor_2.jpg" alt="" class="img-responsive">
+					<div class="magnifier">
+						<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
+					</div>
+				</div><!-- end case-box -->
+			</div><!-- end col -->
 
-	<footer class="footer secondary-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-sm-6 col-xs-12">
-					<p>2019 - 2019 &copy;<a href="#">DijiBT</a>  IT Consulting Services INC. All rights reserved.</p>
-				</div>
+			<div class="item-carousel">
+				<div class="case-box">
+					<img src="../../static/main/upload/case_engineer_1.jpg" alt="" class="img-responsive">
+					<div class="magnifier">
+						<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
+					</div>
+				</div><!-- end case-box -->
+			</div><!-- end col -->
 
-				<div class="col-md-6 col-sm-6 col-xs-12">
-					<ul class="list-inline">
-						<li>Designed: <a href="#">DijiBT</a></li>
-					</ul>
-				</div><!-- end col -->
-			</div><!-- end row -->
-		</div><!-- end container -->
-	</footer><!-- end second footer -->
-</div><!-- end wrapper -->
+			<div class="item-carousel">
+				<div class="case-box">
+					<img src="../../static/main/upload/case_teacher_3.jpg" alt="" class="img-responsive">
+					<div class="magnifier">
+						<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
+					</div>
+				</div><!-- end case-box -->
+			</div><!-- end col -->
+
+			<div class="item-carousel">
+				<div class="case-box">
+					<img src="../../static/main/upload/case_engineer_2.jpg" alt="" class="img-responsive">
+					<div class="magnifier">
+						<a href="../../static/main/case-studies-single.html"><i class="fa fa-link"></i></a> 
+					</div>
+				</div><!-- end case-box -->
+			</div><!-- end col -->
+
+			<div class="item-carousel">
+				<div class="case-box">
+					<img src="../../static/main/upload/case_doctor_1.jpg" alt="" class="img-responsive">
+					<div class="magnifier">
+						<a href="case-studies-single.html"><i class="fa fa-link"></i></a> 
+					</div>
+				</div><!-- end case-box -->
+			</div><!-- end col -->
+		</div>
+	</div>
+</section>
 {% endblock body %}
