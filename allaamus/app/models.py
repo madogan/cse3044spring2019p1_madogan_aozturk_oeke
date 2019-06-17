@@ -12,9 +12,8 @@ class User(UserMixin, db.Model):
     first_name = db.Column(db.String(24), nullable=False)
     last_name = db.Column(db.String(24), nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
-    user_type = db.Column(db.Enum('meraklı', 'usta', name='user_types'))
     register_at = db.Column(db.DateTime(), default=datetime.datetime.utcnow(), nullable=False)
-
+    
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 

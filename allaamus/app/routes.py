@@ -26,7 +26,6 @@ def register():
                 first_name = register_form.first_name.data,
                 last_name = register_form.last_name.data,
                 email = register_form.email.data,
-                user_type = register_form.user_type.data
             )
             new_user.set_password(register_form.password.data)
 

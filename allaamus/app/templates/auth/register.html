@@ -90,20 +90,6 @@
 					</span>
 				</div>
 
-				<div class="wrap-input100 validate-input">
-					{{ form.user_type(class_='input100', type='text', placeholder='Meraklı yada Usta') }}
-
-					{% for error in form.user_type.errors %}
-						<span class="alert-validate" data-validate="{{ error }}"></span>
-					{% endfor %}
-
-					<!--<input class="input100" type="text" name="user_type" placeholder="Meraklı yada Usta">-->
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-user" aria-hidden="true"></i>
-					</span>
-				</div>
-
 				<div class="container-login100-form-btn">
 					{{ form.submit(class_='login100-form-btn') }}
 					<!--<button class="login100-form-btn"> Kayıt </button>-->
