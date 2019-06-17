@@ -19,7 +19,7 @@
 						
 					<img src="../../static/main/upload/case_01.png" alt="" class="img-responsive">
 					<div class="magnifier">
-						<a href="tip"><i class="fa fa-link"></i></a> 
+						<a href={{ url_for('category', category='medicine') }}><i class="fa fa-link"></i></a> 
 					</div>
 				</div><!-- end case-box -->
 			</div><!-- end col -->
@@ -32,7 +32,7 @@
 						
 					<img src="../../static/main/upload/case_07.jpg" alt="" class="img-responsive">
 					<div class="magnifier">
-						<a href="teknoloji"><i class="fa fa-link"></i></a> 
+						<a href={{ url_for('category', category='technology') }}><i class="fa fa-link"></i></a> 
 					</div>
 				</div><!-- end case-box -->
 			</div><!-- end col -->
@@ -45,7 +45,7 @@
 						
 					<img src="../../static/main/upload/case_03.png" alt="" class="img-responsive">
 					<div class="magnifier">
-						<a href="egitim"><i class="fa fa-link"></i></a> 
+						<a href={{ url_for('category', category='education') }}><i class="fa fa-link"></i></a> 
 					</div>
 				</div><!-- end case-box -->
 			</div><!-- end col -->
@@ -56,13 +56,10 @@
 <section class="section">
 	<div class="container">
 		<div class="row service-list">
+			<div class="section-button clearfix text-center">
+				<p class="lead">Allaamus ile aradığınız uzman bir tık ötede ...</p>
 			
-		
-
-		<div class="section-button clearfix text-center">
-			<p class="lead">Allaamus ile aradığınız uzman bir tık ötede ...</p>
-			
-		</div><!-- end section-button -->
+			</div><!-- end section-button -->
 	</div><!-- end container -->
 </section><!-- end section -->
 {% endblock body %}
