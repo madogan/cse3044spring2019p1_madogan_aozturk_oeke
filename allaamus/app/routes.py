@@ -93,19 +93,9 @@ def experts():
     return render_template('main/experts.html')
 
 
-@app.route('/tip', methods=['GET', 'POST'])
-def tip():
-    return render_template('main/service-01.html')    
-
-
-@app.route('/teknoloji', methods=['GET', 'POST'])
-def teknoloji():
-    return render_template('main/service-02.html') 
-
-
-@app.route('/egitim', methods=['GET', 'POST'])
-def egitim():
-    return render_template('main/service-03.html') 
+@app.route('/categor/<category>', methods=['GET', 'POST'])
+def category(category):
+    return render_template(f'main/{category}.html')    
 
 
 @app.route('/soru-1', methods=['GET', 'POST'])
