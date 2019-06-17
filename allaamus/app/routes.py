@@ -1,3 +1,5 @@
+from uuid import uuid4
+
 from app import db
 from app import app
 from app.models import *
@@ -26,6 +28,7 @@ def register():
                 first_name = register_form.first_name.data,
                 last_name = register_form.last_name.data,
                 email = register_form.email.data,
+                uuid = uuid4()
             )
             new_user.set_password(register_form.password.data)
 
@@ -68,9 +71,9 @@ def logout():
     return redirect(url_for('index'))
 
 
-@app.route('/user/<user_id>')
-def user(user_id):
-    return render_template('user/main.html')
+@app.route('/user/<uuid>')
+def user(uuid):
+    return render_template('user/main.html', uuid=uuid)
 
 
 @app.route('/about', methods=['GET', 'POST'])
@@ -96,11 +99,6 @@ def experts():
 @app.route('/categor/<category>', methods=['GET', 'POST'])
 def category(category):
     return render_template(f'main/{category}.html')    
-
-
-@app.route('/soru-1', methods=['GET', 'POST'])
-def soru():
-    return render_template('main/soru-1.html') 
 
 
 @app.errorhandler(404)
