@@ -74,11 +74,11 @@ def user(user_id):
 
 
 @app.route('/about', methods=['GET', 'POST'])
-def page_about():
+def about():
     return render_template('main/page-about.html')
     
 @app.route('/q_a', methods=['GET', 'POST'])
-def blog():
+def q_a():
     return render_template('main/blog.html')
 
 
