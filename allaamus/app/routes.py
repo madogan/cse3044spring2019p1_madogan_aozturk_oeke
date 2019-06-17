@@ -21,7 +21,9 @@ def register():
 
     register_form = RegisterForm()
     if request.method == "POST":
+        print(1)
         if register_form.validate_on_submit():
+            print(2)
             new_user = User(
                 first_name = register_form.first_name.data,
                 last_name = register_form.last_name.data,
@@ -32,14 +34,17 @@ def register():
             old_user = db.session.query(User).filter(User.email==new_user.email).first()
 
             if old_user is None:
+                print(3)
                 db.session.add(new_user)
                 db.session.commit()
                 flash("Başarılı bir şekilde kayıt tamamlandı. Giriş yapabilirsiniz...", "success")
                 return redirect('login')
             else:  # user exist
+                print(4)
                 flash("Bu kullanıcı mevcut.", "warning")
                 return redirect('register')
         else:
+            print(5)
             return render_template("auth/register.html", title="Kayıt", form=register_form)
     if request.method == "GET":
         return render_template("auth/register.html", title="Kayıt", form=register_form)
