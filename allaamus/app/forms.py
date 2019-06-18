@@ -60,3 +60,11 @@ class QuestionForm(FlaskForm):
         choices=[('medicine', 'medicine'), ('education', 'education'), ('technology', 'technology')]
     )
     submit = SubmitField('Gönder')
+
+
+class AnswerForm(FlaskForm):
+    answer = TextAreaField('Yorum', [
+        DataRequired(message="Bu alan boş bırakılamaz."),
+        Regexp(r'^[a-zA-ZğüşöçĞÜİŞıÇÖ0-9@#$%^&+=? ]+$', re.I | re.U, message="Geçersiz karakter")
+    ])
+    submit = SubmitField('Gönder')

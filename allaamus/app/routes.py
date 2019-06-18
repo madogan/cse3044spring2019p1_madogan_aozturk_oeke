@@ -4,7 +4,7 @@ from app import db
 from app import app
 from app.models import *
 from os.path import join
-from app.forms import LoginForm, RegisterForm, QuestionForm
+from app.forms import LoginForm, RegisterForm, QuestionForm, AnswerForm
 from flask_login import current_user, login_user, logout_user, login_required
 from flask import render_template, request, flash, redirect, url_for, g
 
@@ -132,7 +132,28 @@ def category(category):
 def question(qid):
     question = Question.query.get(qid)
     question.date = question.date.strftime("%c")
-    return render_template(f'main/question.html', question=question)    
+
+    answers = db.session.query(Answer).filter(Answer.question_id.in_((qid))).all()
+    answers_count = len(answers)
+
+    answer_form = AnswerForm()
+    if request.method == "POST":
+        if answer_form.is_submitted():
+            answer = Answer(
+                question_id=qid,
+                answerer_id=current_user.id,
+                answerer_name=current_user.first_name + " " + current_user.last_name,
+                content=answer_form.answer.data
+            )
+            
+            db.session.add(answer)
+            db.session.commit()
+
+            return redirect(url_for('question', qid=qid))
+        else:
+            return render_template(f'main/question.html', question=question, form=answer_form, answers=answers, answers_count=answers_count)    
+    if request.method == "GET":
+        return render_template(f'main/question.html', question=question, form=answer_form, answers=answers, answers_count=answers_count)    
 
 
 @app.errorhandler(404)

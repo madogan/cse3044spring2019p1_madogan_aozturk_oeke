@@ -93,5 +93,6 @@ class Answer(db.Model):
     id = db.Column(db.Integer, index=True, primary_key=True)
     question_id = db.Column(db.Integer, db.ForeignKey('question.id'))
     answerer_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    answerer_name = db.Column(db.String, nullable=False)
     content = db.Column(db.String(), nullable=False)
-    date = db.Column(db.DateTime(), nullable=False)
+    date = db.Column(db.DateTime(), default=datetime.datetime.utcnow(), nullable=False)
