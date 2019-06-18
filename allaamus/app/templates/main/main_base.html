@@ -147,9 +147,9 @@
                             <div class="widget clearfix">
                                 <h4 class="widget-title">Allaamus</h4>
                                 <ul>
-                                    <li><a href="#">Hakkımızda</a></li>
+                                    <li><a href="{{ url_for('about') }}">Hakkımızda</a></li>
                                     <li><a href="#">Kariyer</a></li>
-                                    <li><a href="#">Trademark</a></li>
+                                   <!-- <li><a href="#">Trademark</a></li> -->
                                     <li><a href="#">İletişim</a></li>
                                 </ul>
                             </div><!-- end widget -->
@@ -159,9 +159,9 @@
                             <div class="widget clearfix">
                                 <h4 class="widget-title">Kategoriler</h4>
                                 <ul>
-                                    <li><a href="#"> Psikoloji</a></li>
-                                    <li><a href="#">Teknoloji</a></li>
-                                    <li><a href="#">Eğitim</a></li>
+                                    <li><a href={{ url_for('category', category='medicine') }}>TIP</a></li>
+                                    <li><a href={{ url_for('category', category='technology') }}>Teknoloji</a></li>
+                                    <li><a href={{ url_for('category', category='education') }}>Eğitim</a></li>
                                     
                                 </ul>
                             </div><!-- end widget -->
