@@ -1,0 +1,165 @@
+{% extends 'main/main_base.html' %}
+
+{% block head %}{% endblock head %}
+
+{% block body %}
+<section class="section normalhead lb">
+	<div class="container">
+		<div class="row">	
+			<div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
+				<h2>{{question.asker_name}}</h2>
+				<p class="lead">{{question.topic}}</p>
+			</div><!-- end col -->
+		</div><!-- end row -->
+	</div><!-- end container -->
+</section><!-- end section -->
+
+<section class="section">
+	<div class="container">
+		<div class="row">
+
+			<div class="content col-md-12 blog-alt">
+				<div class="blog-box clearfix">
+				
+					<div class="blog-single">
+						<div class="blog-meta">
+							<ul class="list-inline">
+								<li><a href="#"><i class="fa fa-calendar-o"></i>{{question.date}}</a></li>
+								<li><a href="#"><i class="fa fa-folder-open-o"></i>{{question.category}}</a></li>
+							</ul>
+						</div><!-- end meta -->
+						<h3 class="post-title">{{question.topic}}</h3>
+						<p>{{question.content}}</p>
+						</div><!-- end blog-desc -->
+				</div><!-- end blogbox -->
+
+				<div class="blog-box clearfix">
+					<div class="custom-title">
+						<h4>5 Comments</h4>
+						<hr>
+					</div><!-- end -->
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-info">
+								<div class="panel-body comments">
+									<ul class="media-list">
+										<li class="media">
+											<div class="comment">
+												<a href="#" class="pull-left">
+													<img src="upload/team_01.jpeg" alt="" class="img-circle">
+												</a>
+												<div class="media-body">
+													<strong class="text-success">Jane Doe</strong>
+													<span class="text-muted">
+													<small class="text-muted">6 days ago</small></span>
+													<p>Sed condimentum, lectus id mollis porttitor, est justo ornare libero, a pretium sem lorem quis ante. Aliquam eros metus, tincidunt eget hendrerit quis, faucibus vitae magna. Sed gravida aliquam lobortis. Nulla facilisi. Quisque at ante a enim bibendum placerat. Maecenas ante mauris, ultrices ac enim nec, auctor sagittis arcu. <a href="#">#some link </a>.
+													</p>
+													<a href="#" class="btn btn-primary btn-sm">Reply</a>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+											<ul class="media-list">
+												<li class="media">
+													<div class="comment">
+														<a href="#" class="pull-left">
+															<img src="upload/team_02.jpeg" alt="" class="img-circle">
+														</a>
+														<div class="media-body">
+															<strong class="text-success">MrAwesome</strong>
+															<span class="text-muted">
+															<small class="text-muted">2 days ago</small></span>
+															<p>Nunc aliquam dui dignissim magna finibus cursus. Donec eget hendrerit odio. Nam dapibus mauris massa, et feugiat arcu sagittis sed. Donec condimentum massa a justo vestibulum posuere. Praesent id lorem ut lectus placerat porta lobortis a dolor. In sed hendrerit dolor, quis congue erat. </p>
+															<a href="#" class="btn btn-primary btn-sm">Reply</a>
+														</div>
+														<div class="clearfix"></div>
+													</div>
+												</li>
+												<li class="media">
+													<div class="comment">
+														<a href="#" class="pull-left">
+															<img src="upload/team_02.jpeg" alt="" class="img-circle">
+														</a>
+														<div class="media-body">
+															<strong class="text-success">Miss Lucia</strong>
+															<span class="text-muted">
+															<small class="text-muted">15 minutes ago</small></span>
+															<p>Morbi vitae porta tortor. Integer varius molestie turpis, eget pellentesque odio pretium eget. Sed facilisis quam purus, vitae facilisis lectus sollicitudin in. Donec a elit ut velit aliquet varius. Curabitur in pulvinar ligula. Sed urna purus, iaculis sed justo vitae, facilisis faucibus massa.</p>
+															<a href="#" class="btn btn-primary btn-sm">Reply</a>
+														</div>
+														<div class="clearfix"></div>
+													</div>
+												</li>
+											</ul>
+										</li>
+										<li class="media">
+											<div class="comment">
+												<a href="#" class="pull-left">
+													<img src="upload/team_03.jpeg" alt="" class="img-circle">
+												</a>
+												<div class="media-body">
+													<strong class="text-success">Jana Cova</strong>
+													<span class="text-muted">
+													<small class="text-muted">12 days ago</small></span>
+													<p> Nulla facilisi. Quisque at ante a enim bibendum placerat. Maecenas ante mauris, ultrices ac enim nec, auctor sagittis arcu. Vestibulum congue blandit ex, eget suscipit risus gravida non. Proin bibendum convallis felis, a pulvinar massa rutrum et. Morbi vel feugiat sem.</p>
+													<a href="#" class="btn btn-primary btn-sm">Reply</a>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</li>
+										<li class="media">
+											<div class="comment">
+												<a href="#" class="pull-left">
+													<img src="upload/team_02.jpeg" alt="" class="img-circle">
+												</a>
+												<div class="media-body">
+													<strong class="text-success">Johnatan Smarty</strong>
+													<span class="text-muted">
+													<small class="text-muted">1 month ago</small></span>
+													<p> Aliquam et congue mi. Donec odio nibh, eleifend a molestie rutrum, mattis et leo. Aliquam malesuada dictum libero et tristique. Duis tincidunt maximus massa in luctus. </p>
+													<a href="#" class="btn btn-primary btn-sm">Reply</a>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- end postpager -->
+
+				<div class="blog-box clearfix">
+					<div class="custom-title">
+						<h4>Leave a Comment</h4>
+					</div><!-- end about -->
+
+					<div class="contact_form comment-form">
+						<form class="row">
+							<div class="col-md-4 col-sm-12">
+								<label>Name <span class="required">*</span></label>
+								<input type="text" class="form-control" placeholder="">
+							</div>
+							<div class="col-md-4 col-sm-12">
+								<label>Email <span class="required">*</span></label>
+								<input type="email" class="form-control" placeholder="">
+							</div>
+							<div class="col-md-4 col-sm-12">
+								<label>Website</label>
+								<input type="text" class="form-control" placeholder="">
+							</div>
+							<div class="col-md-12 col-sm-12">
+								<label>Comment <span class="required">*</span></label>
+								<textarea class="form-control" placeholder=""></textarea>
+							</div>
+							<div class="col-md-12 col-sm-12">
+								<input type="submit" value="Send Comment" class="btn btn-primary" />
+							</div>
+						</form>
+					</div><!-- end commentform -->
+				</div><!-- end postpager -->
+			</div><!-- end content -->
+		</div><!-- end row -->
+	</div><!-- end container -->
+</section><!-- end section -->
+{% endblock body %}

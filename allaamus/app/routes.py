@@ -4,9 +4,9 @@ from app import db
 from app import app
 from app.models import *
 from os.path import join
-from app.forms import LoginForm, RegisterForm
+from app.forms import LoginForm, RegisterForm, QuestionForm
 from flask_login import current_user, login_user, logout_user, login_required
-from flask import render_template, request, flash, redirect, url_for
+from flask import render_template, request, flash, redirect, url_for, g
 
 
 @app.route('/index', methods=['GET', 'POST'])
@@ -30,7 +30,10 @@ def register():
                 email = register_form.email.data,
                 uuid = uuid4()
             )
+
             new_user.set_password(register_form.password.data)
+
+            new_user.set_username()
 
             old_user = db.session.query(User).filter(User.email==new_user.email).first()
 
@@ -51,6 +54,7 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
+        flash("Halihazırda giriş yapmış bulunmaktasınız.")
         return redirect(url_for('index'))
     
     login_form = LoginForm()
@@ -71,9 +75,31 @@ def logout():
     return redirect(url_for('index'))
 
 
-@app.route('/user/<uuid>')
-def user(uuid):
-    return render_template('user/main.html', uuid=uuid)
+@app.route('/user/<username>', methods=["POST", "GET"])
+def user(username):
+    if not current_user.is_authenticated:
+        return redirect(url_for('index'))
+    
+    question_form = QuestionForm()
+    if request.method == "POST":
+        if question_form.validate_on_submit():
+            question = Question(
+                asker_id=current_user.id,
+                asker_name=current_user.first_name + " " + current_user.last_name,
+                topic=question_form.topic.data,
+                content=question_form.question.data,
+                category=question_form.category.data
+            )
+            
+            db.session.add(question)
+            db.session.commit()
+
+            return redirect(url_for('q_a'))
+        else:
+            flash("Dikkatli ol biraz :)")
+            return render_template('user/main.html', form=question_form)
+    if request.method == "GET":
+        return render_template('user/main.html', form=question_form)
 
 
 @app.route('/about', methods=['GET', 'POST'])
@@ -83,7 +109,8 @@ def about():
 
 @app.route('/q_a', methods=['GET', 'POST'])
 def q_a():
-    return render_template('main/q_a.html')
+    questions = Question.query.all()
+    return render_template('main/q_a.html', questions=questions)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
@@ -99,6 +126,13 @@ def experts():
 @app.route('/categor/<category>', methods=['GET', 'POST'])
 def category(category):
     return render_template(f'main/{category}.html')    
+
+
+@app.route('/question/<qid>', methods=['GET', 'POST'])
+def question(qid):
+    question = Question.query.get(qid)
+    question.date = question.date.strftime("%c")
+    return render_template(f'main/question.html', question=question)    
 
 
 @app.errorhandler(404)

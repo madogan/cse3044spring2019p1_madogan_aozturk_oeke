@@ -14,11 +14,37 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(256), index=True, unique=True)
     first_name = db.Column(db.String(24), nullable=False)
     last_name = db.Column(db.String(24), nullable=False)
+    username = db.Column(db.String(), nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
     register_at = db.Column(db.DateTime(), default=datetime.datetime.utcnow(), nullable=False)
+    job = db.Column(db.String(), nullable=True)
+    about = db.Column(db.String(), nullable=True)
+
+
 
     questions = relationship("Question")
     answers = relationship("Answer")
+
+    def set_username(self):
+        self.username = User.asciify(self.first_name).lower().strip() + "_" + User.asciify(self.last_name).lower().strip()
+
+    @staticmethod
+    def asciify(s):
+        table = {
+            ord('ı'): "i",
+            ord('ğ'): 'g',
+            ord('ü'): 'u',
+            ord('ş'): 's',
+            ord('ö'): 'o',
+            ord('ç'): 'c',
+            ord('Ğ'): "G",
+            ord('Ü'): 'U',
+            ord('Ş'): 'S',
+            ord('İ'): 'I',
+            ord('Ö'): 'O',
+            ord('Ç'): 'C'
+        }
+        return s.translate(table)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -54,10 +80,12 @@ class Question(db.Model):
     __tablename__ = 'question'
     id = db.Column(db.Integer, index=True, primary_key=True)
     asker_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    asker_name = db.Column(db.String, nullable=False)
+    topic = db.Column(db.String(), nullable=False)
     content = db.Column(db.String(), nullable=False)
-    date = db.Column(db.DateTime(), nullable=False)
+    date = db.Column(db.DateTime(), default=datetime.datetime.utcnow(), nullable=False)
     category = db.Column(db.String(), nullable=False)
-    
+
     answers = relationship("Answer")
 
 class Answer(db.Model):
